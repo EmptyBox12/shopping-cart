@@ -46,10 +46,11 @@ export default function Product({ products, setCart, cart }) {
   }
 
   return (
-    <div>
+    <div className= "productDetail">
       <form onSubmit={onFormSubmit}>
         <p>{product && product.name}</p>
-        <p>Price: {product && product.quantity * product.price}</p>
+        <img src={`../${product.img}`} alt="" />
+        <p>Price: {product && product.quantity * product.price}$</p>
         <div>
           <button type="button" onClick={buttonClick}>
             -

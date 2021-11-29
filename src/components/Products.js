@@ -12,8 +12,8 @@ export default function Products({products}) {
         return (
           <div className = "product" key = {product.id} onClick = {()=> navigateToDetails(product.id)}>
             <span>{product.name}</span>
-            <span>{product.price}</span>
             <img src= {product.img} alt="cat" />
+            <span>{product.price}$</span>
           </div>
         );
       })}
