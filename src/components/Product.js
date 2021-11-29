@@ -55,22 +55,24 @@ export default function Product({ products, setCart, cart }) {
         <p className= "productDetailName">{product && product.name}</p>
         <img src={`../${product.img}`} alt="" />
         <p className="productDetailPrice">Price: {product && product.quantity * product.price}$</p>
+        <span className="productDetailQuantity">Quantity</span>
         <div>
-          <button type="button" onClick={buttonClick}>
+          <button type="button" onClick={buttonClick} className = "productDetailButtons">
             -
           </button>
           <input
             type="number"
             onChange={handleQuantityChange}
             value={product.quantity}
+            className = "projectDetailInput"
           />
-          <button type="button" onClick={buttonClick}>
+          <button type="button" onClick={buttonClick} className = "productDetailButtons">
             +
           </button>
         </div>
-        <button type="submit">Add to Cart</button>
+        <button className = "productDetailSubmit" type="submit">Add to Cart</button>
       </form>
-      <button onClick={navigateToProducts}>Back</button>
+      <button onClick={navigateToProducts} className = "projectDetailBack">Back</button>
     </div>
   );
 }

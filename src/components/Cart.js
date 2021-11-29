@@ -35,7 +35,8 @@ export default function Cart({ cart, setCart }) {
       {cart.map((item) => {
         return (
           <div key={item.id}>
-            <button onClick={() => deleteItem(item)}>Delete</button>
+            <button onClick={() => deleteItem(item)}>Remove</button>
+            <img src={item.img} alt="" />
             Name:{item.name}
             Quantitiy:{item.quantity}
             Price: {item.price * parseInt(item.quantity) || 0}
