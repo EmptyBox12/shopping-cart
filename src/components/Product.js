@@ -26,7 +26,7 @@ export default function Product({ products, setCart, cart }) {
     }
   }
   function handleQuantityChange(e) {
-    if (isNaN(parseInt(e.target.value))) {
+    if (e.target.value === "" || parseInt(e.target.value)<0) {
       setProduct({ ...product, quantity: "" });
     } else {
       setProduct({ ...product, quantity: e.target.value });
@@ -40,7 +40,7 @@ export default function Product({ products, setCart, cart }) {
       setCart((prevValue) => prevValue.concat(product));
     } else if (cartItem) {
       let cartCopy = [...cart];
-      cartCopy[index].quantity = cartItem.quantity + product.quantity;
+      cartCopy[index].quantity = parseInt(cartItem.quantity) + parseInt(product.quantity);
       setCart(cartCopy);
     }
   }
@@ -55,7 +55,7 @@ export default function Product({ products, setCart, cart }) {
             -
           </button>
           <input
-            type="text"
+            type="number"
             onChange={handleQuantityChange}
             value={product.quantity}
           />

@@ -70,7 +70,7 @@ function App() {
             }}
             to="/cart"
           >
-            My Cart
+            My Cart {cart.length}
           </NavLink>
         </nav>
         <Routes>
@@ -79,7 +79,9 @@ function App() {
           <Route path="/products" element={<Products products={products} />} />
           <Route
             path="/products/:id"
-            element={<Product products={products} setCart={setCart} cart = {cart} />}
+            element={
+              <Product products={products} setCart={setCart} cart={cart} />
+            }
           />
           <Route
             path="/cart"
