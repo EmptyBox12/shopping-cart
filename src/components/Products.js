@@ -7,12 +7,13 @@ export default function Products({products}) {
     navigate(`/products/${id}`);
   }
   return (
-    <div>
+    <div className = "productPage">
       {products.map(product =>{
         return (
-          <div key = {product.id} onClick = {()=> navigateToDetails(product.id)}>
+          <div className = "product" key = {product.id} onClick = {()=> navigateToDetails(product.id)}>
             <span>{product.name}</span>
             <span>{product.price}</span>
+            <img src= {product.img} alt="cat" />
           </div>
         );
       })}
