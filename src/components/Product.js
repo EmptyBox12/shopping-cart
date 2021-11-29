@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function Product({ products, setCart, cart }) {
+  let navigate = useNavigate();
   let { id } = useParams();
   const [product, setProduct] = useState({
     name: "",
@@ -44,13 +45,16 @@ export default function Product({ products, setCart, cart }) {
       setCart(cartCopy);
     }
   }
+  function navigateToProducts() {
+    navigate("/products");
+  }
 
   return (
     <div className= "productDetail">
-      <form onSubmit={onFormSubmit}>
-        <p>{product && product.name}</p>
+      <form className="productForm" onSubmit={onFormSubmit}>
+        <p className= "productDetailName">{product && product.name}</p>
         <img src={`../${product.img}`} alt="" />
-        <p>Price: {product && product.quantity * product.price}$</p>
+        <p className="productDetailPrice">Price: {product && product.quantity * product.price}$</p>
         <div>
           <button type="button" onClick={buttonClick}>
             -
@@ -66,6 +70,7 @@ export default function Product({ products, setCart, cart }) {
         </div>
         <button type="submit">Add to Cart</button>
       </form>
+      <button onClick={navigateToProducts}>Back</button>
     </div>
   );
 }
