@@ -32,41 +32,57 @@ export default function Cart({ cart, setCart }) {
 
   return (
     <div className="cartPage">
-      {cart.map((item) => {
-        return (
-          <div key={item.id} className="cartItem">
-            <button className ="removeButton" onClick={() => deleteItem(item)}>Remove</button>
-            <div className="cartItemContent">
-              <div className="cartItemFirst">
-                <img src={item.img} alt="" />
-                <div className="cartItemLeft">
-                  <span>{item.name}</span>
-                  <span className="cartItemQuantity">
-                    Quantity:{item.quantity}
-                  </span>
+      <div className="cartItemsContainer">
+        {cart.map((item) => {
+          return (
+            <div key={item.id} className="cartItem">
+              <button className="removeButton" onClick={() => deleteItem(item)}>
+                Remove
+              </button>
+              <div className="cartItemContent">
+                <div className="cartItemFirst">
+                  <img src={item.img} alt="" />
+                  <div className="cartItemLeft">
+                    <span>{item.name}</span>
+                    <span className="cartItemQuantity">
+                      Quantity:{item.quantity}
+                    </span>
+                  </div>
                 </div>
-              </div>
-              <div className="cartItemRight">
-                Price: {item.price * parseInt(item.quantity) || 0}
-                <div>
-                  <button onClick={(e) => clickButton(item, e)}>-</button>
-                  <input
-                    type="number"
-                    value={item.quantity}
-                    onChange={(e) => handleQuantityChange(item, e)}
-                  />
-                  <button onClick={(e) => clickButton(item, e)}>+</button>
+                <div className="cartItemRight">
+                  Price: {item.price * parseInt(item.quantity) || 0}
+                  <div>
+                    <button
+                      className="productDetailButtons"
+                      onClick={(e) => clickButton(item, e)}
+                    >
+                      -
+                    </button>
+                    <input
+                      type="number"
+                      className="projectDetailInput"
+                      value={item.quantity}
+                      onChange={(e) => handleQuantityChange(item, e)}
+                    />
+                    <button
+                      className="productDetailButtons"
+                      onClick={(e) => clickButton(item, e)}
+                    >
+                      +
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        );
-      })}
-      <div>
-        Total:{" "}
+          );
+        })}
+      </div>
+      <div className="checkoutContainer">
+        Total: 
         {cart.reduce((acc, current) => {
           return acc + current.price * current.quantity;
-        }, 0)}
+        }, 0)}$
+        <button className= "productDetailSubmit">Checkout</button>
       </div>
     </div>
   );
