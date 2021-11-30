@@ -25,7 +25,7 @@ export default function Cart({ cart, setCart }) {
         setCart(newCart);
       }
     } else if (e.target.textContent === "+") {
-      newCart[index].quantity += 1;
+      newCart[index].quantity = parseInt(newCart[index].quantity) + 1;
       setCart(newCart);
     }
   }
