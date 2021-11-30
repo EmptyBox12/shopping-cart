@@ -39,10 +39,12 @@ export default function Product({ products, setCart, cart }) {
     let index = cart.findIndex((item) => item.id === product.id);
     if (!cartItem) {
       setCart((prevValue) => prevValue.concat(product));
+      navigate("/products");
     } else if (cartItem) {
       let cartCopy = [...cart];
       cartCopy[index].quantity = parseInt(cartItem.quantity) + parseInt(product.quantity);
       setCart(cartCopy);
+      navigate("/products");
     }
   }
   function navigateToProducts() {

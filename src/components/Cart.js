@@ -31,25 +31,43 @@ export default function Cart({ cart, setCart }) {
   }
 
   return (
-    <div>
+    <div className="cartPage">
       {cart.map((item) => {
         return (
-          <div key={item.id}>
-            <button onClick={() => deleteItem(item)}>Remove</button>
-            <img src={item.img} alt="" />
-            Name:{item.name}
-            Quantitiy:{item.quantity}
-            Price: {item.price * parseInt(item.quantity) || 0}
-            <button onClick={(e) => clickButton(item, e)}>-</button>
-            <input
-              type="number"
-              value={item.quantity}
-              onChange={(e) => handleQuantityChange(item, e)}
-            />
-            <button onClick={(e) => clickButton(item, e)}>+</button>
+          <div key={item.id} className="cartItem">
+            <button className ="removeButton" onClick={() => deleteItem(item)}>Remove</button>
+            <div className="cartItemContent">
+              <div className="cartItemFirst">
+                <img src={item.img} alt="" />
+                <div className="cartItemLeft">
+                  <span>{item.name}</span>
+                  <span className="cartItemQuantity">
+                    Quantity:{item.quantity}
+                  </span>
+                </div>
+              </div>
+              <div className="cartItemRight">
+                Price: {item.price * parseInt(item.quantity) || 0}
+                <div>
+                  <button onClick={(e) => clickButton(item, e)}>-</button>
+                  <input
+                    type="number"
+                    value={item.quantity}
+                    onChange={(e) => handleQuantityChange(item, e)}
+                  />
+                  <button onClick={(e) => clickButton(item, e)}>+</button>
+                </div>
+              </div>
+            </div>
           </div>
         );
       })}
+      <div>
+        Total:{" "}
+        {cart.reduce((acc, current) => {
+          return acc + current.price * current.quantity;
+        }, 0)}
+      </div>
     </div>
   );
 }
