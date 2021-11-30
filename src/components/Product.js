@@ -55,7 +55,7 @@ export default function Product({ products, setCart, cart }) {
     <div className= "productDetail">
       <form className="productForm" onSubmit={onFormSubmit}>
         <p className= "productDetailName">{product && product.name}</p>
-        <img src={`../${product.img}`} alt="" />
+        <img src={`${product.img}`} alt="" />
         <p className="productDetailPrice">Price: {product && product.quantity * product.price}$</p>
         <span className="productDetailQuantity">Quantity</span>
         <div>

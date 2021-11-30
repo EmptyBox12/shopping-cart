@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Routes,
   Route,
   NavLink,
@@ -86,7 +86,7 @@ function App() {
   const [cart, setCart] = useState([]);
   return (
     <div className="App">
-      <Router>
+      <Router basename ="/">
         <nav className="navbar">
           <div className= "titleContainer">
             <NavLink to = "/"  className={({ isActive }) => (isActive ? "title" : "title")}>Fake-PetShop</NavLink>
