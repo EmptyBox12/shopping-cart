@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/shopping-cart/static/css/main.8093e0fa.chunk.css",
+    "main.css": "/shopping-cart/static/css/main.8cb90d70.chunk.css",
     "main.js": "/shopping-cart/static/js/main.d88d56e0.chunk.js",
     "runtime-main.js": "/shopping-cart/static/js/runtime-main.4fee3be4.js",
     "static/js/2.aeccf268.chunk.js": "/shopping-cart/static/js/2.aeccf268.chunk.js",
@@ -11,7 +11,7 @@
   "entrypoints": [
     "static/js/runtime-main.4fee3be4.js",
     "static/js/2.aeccf268.chunk.js",
-    "static/css/main.8093e0fa.chunk.css",
+    "static/css/main.8cb90d70.chunk.css",
     "static/js/main.d88d56e0.chunk.js"
   ]
 }
